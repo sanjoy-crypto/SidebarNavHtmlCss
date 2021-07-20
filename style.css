@@ -1,0 +1,121 @@
+:root {
+  --color-gray: #f2f2f2;
+  --color-dark: #1c2237;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  background: url("/banner.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+nav {
+  background: var(--color-dark);
+  color: white;
+  font-size: 1.6rem;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 4px rgba(0, 0, 0.2);
+}
+.hamburger {
+  transform: translateY(3px);
+  margin-right: 1rem;
+  cursor: pointer;
+}
+.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+}
+.backdrop__active {
+  display: block;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 75%;
+  max-width: 18rem;
+  height: 100%;
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  box-shadow: 0 0 4px rgba(0, 0, 0.2);
+  background: var(--color-dark);
+  transform: translateX(-100%);
+}
+.sidebar__active {
+  transform: translateX(0);
+}
+.sidebar_profile {
+  padding: 1rem 1.5rem;
+  display: flex;
+  border-bottom: 2px solid rgba(2, 2, 2, 0.1);
+  align-items: center;
+}
+.sidebar_profile img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  margin-right: 5px;
+  transform: translateX(-0.3rem);
+  background: white;
+}
+.sidebar_profile h1 {
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+  color: var(--color-gray);
+  white-space: nowrap;
+}
+.sidebar_profile p {
+  font-size: 12px;
+  color: crimson;
+}
+.sidebar_list {
+  list-style: none;
+}
+.sidebar_item {
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  position: relative;
+  overflow: hidden;
+}
+.sidebar_item a {
+  text-decoration: none;
+  color: var(--color-gray);
+  display: flex;
+  align-items: center;
+  transition: color 0.5s ease-in;
+}
+.sidebar_item i {
+  margin-right: 0.5rem;
+}
+
+.sidebar_item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 0;
+  background: var(--color-gray);
+  transition: height 0.5s 0.4s, width 0.5s;
+  z-index: -1;
+}
+.sidebar_item:hover::after {
+  transition: height 0.5s 0.1s, width 0.5s 0.4s;
+  height: 100%;
+  width: 100%;
+}
+.sidebar_item:hover a {
+  color: var(--color-dark);
+  font-weight: 500;
+}
